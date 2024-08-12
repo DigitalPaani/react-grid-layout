@@ -333,8 +333,8 @@ function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /
     if (compactH) {
       resolveCompactionCollision(fullLayout, l, collides.x + collides.w, "x");
     } else {
-      // resolveCompactionCollision(fullLayout, l, collides.y + collides.h, "y");
-      resolveCompactionCollision(fullLayout, l, collides.x + collides.w, "x");
+      resolveCompactionCollision(fullLayout, l, collides.y + collides.h, "x");
+      // resolveCompactionCollision(fullLayout, l, collides.x + collides.w, "x");
     }
     // Since we can't grow without bounds horizontally, if we've overflown, let's move it down and try again.
     if (compactV && l.x + l.w > cols) {
