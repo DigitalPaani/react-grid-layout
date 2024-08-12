@@ -331,9 +331,15 @@ function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /
     while (l.y > 0 && !getFirstCollision(compareWith, l)) {
       l.y--;
     }
+    if (getFirstCollision(compareWith, l)) {
+      l.y++;
+    }
     // Move the element left as far as it can go without colliding.
     while (l.x > 0 && !getFirstCollision(compareWith, l)) {
       l.x--;
+    }
+    if (getFirstCollision(compareWith, l)) {
+      l.x++;
     }
     console.log("compactV", JSON.stringify(l));
   } else if (compactH) {
@@ -426,6 +432,7 @@ function getFirstCollision(layout /*: Layout*/, layoutItem /*: LayoutItem*/) /*:
   for (let i = 0, len = layout.length; i < len; i++) {
     if (collides(layout[i], layoutItem)) return layout[i];
   }
+  return false;
 }
 function getAllCollisions(layout /*: Layout*/, layoutItem /*: LayoutItem*/) /*: Array<LayoutItem>*/{
   return layout.filter(l => collides(l, layoutItem));
