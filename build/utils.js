@@ -321,7 +321,7 @@ function resolveCompactionCollision(layout /*: Layout*/, item /*: LayoutItem*/, 
 function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /*: CompactType*/, cols /*: number*/, fullLayout /*: Layout*/, allowOverlap /*: ?boolean*/) /*: LayoutItem*/{
   const compactV = compactType === "vertical";
   const compactH = compactType === "horizontal";
-  console.log("compactItem", l);
+  console.log("compactItem", JSON.stringify(l));
   if (compactV) {
     // Bottom 'y' possible is the bottom of the layout.
     // This allows you to do nice stuff like specify {y: Infinity}
@@ -335,7 +335,7 @@ function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /
     while (l.x > 0 && !getFirstCollision(compareWith, l)) {
       l.x--;
     }
-    console.log("compactV", l);
+    console.log("compactV", JSON.stringify(l));
   } else if (compactH) {
     // Move the element left as far as it can go without colliding.
     while (l.x > 0 && !getFirstCollision(compareWith, l)) {
