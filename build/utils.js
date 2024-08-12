@@ -363,7 +363,6 @@ function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /
     // Since we can't grow without bounds horizontally, if we've overflown, let's move it down and try again.
     if (compactV && l.x + l.w > cols) {
       l.x = cols - l.w;
-      l.y++;
       // ALso move element as left as we can
       while (l.x > 0 && !getFirstCollision(compareWith, l)) {
         l.x--;
