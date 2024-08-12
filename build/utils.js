@@ -305,6 +305,7 @@ function resolveCompactionCollision(layout /*: Layout*/, item /*: LayoutItem*/, 
 function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /*: CompactType*/, cols /*: number*/, fullLayout /*: Layout*/, allowOverlap /*: ?boolean*/) /*: LayoutItem*/{
   const compactV = compactType === "vertical";
   const compactH = compactType === "horizontal";
+  console.log("compactItem", l);
   if (compactV) {
     // Bottom 'y' possible is the bottom of the layout.
     // This allows you to do nice stuff like specify {y: Infinity}
