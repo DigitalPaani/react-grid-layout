@@ -318,6 +318,7 @@ function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /
     while (l.x > 0 && !getFirstCollision(compareWith, l)) {
       l.x--;
     }
+    console.log("compactV", l);
   } else if (compactH) {
     // Move the element left as far as it can go without colliding.
     while (l.x > 0 && !getFirstCollision(compareWith, l)) {
@@ -333,9 +334,10 @@ function compactItem(compareWith /*: Layout*/, l /*: LayoutItem*/, compactType /
       resolveCompactionCollision(fullLayout, l, collides.x + collides.w, "x");
     } else {
       resolveCompactionCollision(fullLayout, l, collides.y + collides.h, "y");
+      resolveCompactionCollision(fullLayout, l, collides.x + collides.w, "x");
     }
     // Since we can't grow without bounds horizontally, if we've overflown, let's move it down and try again.
-    if (compactH && l.x + l.w > cols) {
+    if (compactV && l.x + l.w > cols) {
       l.x = cols - l.w;
       l.y++;
       // ALso move element as left as we can
