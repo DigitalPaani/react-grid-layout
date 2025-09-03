@@ -849,7 +849,7 @@ function compactType(props /*: ?{ verticalCompact: boolean, compactType: Compact
 function log() {
   if (!DEBUG) return;
   // eslint-disable-next-line no-console
-  // console.log(...arguments);
+  console.log(...arguments);
 }
 const noop = () => {};
 exports.noop = noop;
