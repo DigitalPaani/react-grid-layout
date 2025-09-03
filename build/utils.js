@@ -220,26 +220,20 @@ function fastPositionEqual(a /*: Position*/, b /*: Position*/) /*: boolean*/{
  */
 function collides(l1 /*: LayoutItem*/, l2 /*: LayoutItem*/) /*: boolean*/{
   if (l1.i === l2.i) {
-    console.log("Same Element");
     return false; // same element
   }
   if (l1.x + l1.w <= l2.x) {
-    console.log("l1 is left of l2");
     return false; // l1 is left of l2
   }
   if (l1.x >= l2.x + l2.w) {
-    console.log("l1 is right of l2");
     return false; // l1 is right of l2
   }
   if (l1.y + l1.h <= l2.y) {
-    console.log("l1 is above l2");
     return false; // l1 is above l2
   }
   if (l1.y >= l2.y + l2.h) {
-    console.log("l1 is below l2");
     return false; // l1 is below l2
   }
-  console.log("l1 and l2 overlap");
   return true; // boxes overlap
 }
 
@@ -855,7 +849,7 @@ function compactType(props /*: ?{ verticalCompact: boolean, compactType: Compact
 function log() {
   if (!DEBUG) return;
   // eslint-disable-next-line no-console
-  console.log(...arguments);
+  // console.log(...arguments);
 }
 const noop = () => {};
 exports.noop = noop;
